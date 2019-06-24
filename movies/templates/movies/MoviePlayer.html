@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+#header {
+    background-color:darkred;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#operations {
+    padding-top: 10px;
+    text-align:left;
+    text-decoration:none;
+
+}
+#section {
+    width:350px;
+    float:left;
+    padding:10px;
+}
+#footer {
+    background-color:lightseagreen;
+    color:white;
+    clear:both;
+    text-align:center;
+   padding:5px;
+}
+
+.tg  {border-collapse:collapse;border-spacing:0;border-color:#aabcfe;}
+.tg td{font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#669;background-color:#e8edff;}
+.tg th{font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;border-color:#aabcfe;color:#039;background-color:#b9c9fe;}
+.tg .tg-hmp3{background-color:#D2E4FC;text-align:left;vertical-align:top}
+.tg .tg-baqh{text-align:center;vertical-align:top}
+.tg .tg-mb3i{background-color:#D2E4FC;text-align:right;vertical-align:top}
+.tg .tg-lqy6{text-align:right;vertical-align:top}
+.tg .tg-0lax{text-align:left;vertical-align:top}
+</style>
+</head>
+<body>
+
+<div id="header">
+<h1>Movie Library</h1>
+</div>
+
+<div id="operations">
+<form method="post" action="{% url 'DeleteMovie' movie.pk %}">
+  {% csrf_token %}
+  <button type="submit" class="="btn btn-outline-danger" "name="DeleteMovie">Delete Movie</button>
+  <a href="{% url 'home' %}"> <button type="submit" name="Home" value="Home"> Back to Home </button> </a>
+</form>    
+</div>
+<br />
+<table class="tg">
+    <tr>
+    <td class="tg-0lax"><img src="{{ movie.Movie_Icon.url }}" height=250 width=300/>
+        <br />{{ movie.Name}} <br />{{ movie.Client }}</td>
+    <td class="tg-0lax"><video width="500" controls autoplay><source src="{{ movie.Movie_File.url }}" type="video/mp4" /></video></td>
+  </tr>
+  </table>
+<br />
+<br />
+<div id="footer">
+Powered by Python Django Framework by ACEDS-Group 1 Evening
+</div>
+</body>
+</HTML>
